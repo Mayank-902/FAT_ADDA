@@ -35,6 +35,11 @@ pipeline {
                 bat "C:\\Windows\\System32\\cmd.exe /c docker push m0inak/my-maven-docker-project.jar:tag"
             }
         }
+        stage("Run Docker Image"){
+            steps {
+                bat "C:\\Windows\\System32\\cmd.exe /c docker run -p 3000:3000 m0inak/my-maven-docker-project.jar:tag"
+            }
+        }
     }
     post {
         success {
